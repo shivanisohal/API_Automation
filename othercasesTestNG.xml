@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/sohal/IdeaProjects/API_Automation">
+        <classes>
+            <class name="Delete_NonBDD.Delete">
+                <methods>
+                    <include name="DeleteTest"/>
+                </methods>
+            </class>
+            <class name="GET.NonBDD_Example">
+                <methods>
+                    <include name="Test_get_NonBDD_positive"/>
+                    <include name="Test_get_NonBDD_Negative"/>
+                </methods>
+            </class>
+            <class name="POST.BDD_Style">
+                <methods>
+                    <include name="BDD_PostTest"/>
+                </methods>
+            </class>
+            <class name="POST.NonBDD_Example">
+                <methods>
+                    <include name="Test_NonBDD_Post"/>
+                </methods>
+            </class>
+            <class name="PUT.PUT_NonBDD">
+                <methods>
+                    <include name="Test_Put_NonBDD"/>
+                </methods>
+            </class>
+            <class name="TestNG_Examples_Concepts.Priority_Example">
+                <methods>
+                    <include name="T1"/>
+                    <include name="T2"/>
+                    <include name="T3"/>
+                </methods>
+            </class>
+            <class name="TestNG_AllureReport.MultipleTCs_API">
+                <methods>
+                    <include name="Testcase1_Positive"/>
+                    <include name="Testcase2_Negative"/>
+                    <include name="Testcase3_Negative"/>
+                    <include name="Testcase4_Neagtive"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
