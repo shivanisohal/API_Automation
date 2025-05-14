@@ -9,6 +9,7 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matchers;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -16,6 +17,7 @@ import static org.assertj.core.api.Assertions.*;
 public class AssertJ_Example {
 
 
+    int bookingID;
     RequestSpecification r;
     Response response;
     ValidatableResponse vr;
@@ -44,10 +46,29 @@ public class AssertJ_Example {
 
         response = r.when().log().all().post();
 
+        // ✅ Print actual response
+        String responseBody = response.prettyPrint(); // prints and stores
+        //System.out.println("Stored Response: " + responseBody);
+
         vr = response.then()
                 .statusCode(200);
         vr.body("booking.firstname", Matchers.equalTo("Shivani"));
         vr.body("booking.additionalneeds", Matchers.equalTo("Breakfast"));
+
+// Extraction and Validation using TestNG
+
+        bookingID=response.then().extract().path("bookingid");
+        String firstname=response.then().extract().path("booking.firstname");
+        String lastname=response.then().extract().path("booking.lastname");
+
+        Assert.assertEquals(firstname,"Shivani");
+        Assert.assertEquals(lastname,"sohal");
+        Assert.assertNotNull(bookingID);
+
+
+        //Assertj(3rd party Lib) - extraction
+        // assertThat(bookingID).isNotZero().isNotNull().isNotPositive();
+        assertThat(firstname).isNotBlank().isNotEmpty().isNotNull().isEqualTo("Shivani");
 
 
     }
