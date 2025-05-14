@@ -1,4 +1,4 @@
-package TestBG_Examples_Concepts;
+package TestNG_Examples_Concepts;
 
 import org.testng.annotations.Test;
 
